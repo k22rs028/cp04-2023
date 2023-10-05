@@ -179,7 +179,7 @@
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
         active = true;
-        staetTime = new Date();        
+        startTime = new Date();        
     }
 
     // ButtonBがクリックされた時の処理
@@ -199,8 +199,13 @@
  
     // 繰り返し実行する処理
     function timer(){  
-        
-        
+        if(active){
+            var time = parseInt( (new Date() - startTime)/1000 );
+            var rest = period - time;
+            $("time").html("経過時間：" + time);
+            $("#remain").html("残り時間：" + rest);
+            analog(rest);
+        }
     } 
 
   </script>
