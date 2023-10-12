@@ -202,7 +202,7 @@
         if(active){
             var time = parseInt( (new Date() - startTime)/1000 );
             var rest = period - time;
-            $("time").html("経過時間：" + time);
+            $("#time").html("経過時間：" + time);
             $("#remain").html("残り時間：" + rest);
             analog(rest);
         }
@@ -215,7 +215,6 @@
   </script>
 </head>
 <body>
-    <background = skyblue>
     <canvas id="mycanvas" width="200" height="200">Test</canvas>
 
     <div id="minuteStr">〇</div>
