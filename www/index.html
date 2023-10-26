@@ -39,6 +39,7 @@
             btnCClick(e);
         });
         init();
+        btnCClick(null);
     });
     
     function rgbToColor(r,g,b){
@@ -179,12 +180,13 @@
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
         active = true;
-        startTime = new Date();        
+        startTime = new Date(); 
+             
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
-        active = false;        
+        active = false;     
     }
 
     // ButtonCがクリックされた時の処理
@@ -202,15 +204,29 @@
         if(active){
             var time = parseInt( (new Date() - startTime)/1000 );
             var rest = period - time;
+
+            var m = parseInt(rest/60);
+            var s = parseInt(rest % 60);
             $("#time").html("経過時間：" + time);
-            $("#remain").html("残り時間：" + rest);
+            $("#remain").html("残り時間：" + rest + "(" + m + ":" + s + ")" );
             analog(rest);
         }
         if(rest <= 0){
             active = false;
             alarm();
         }
-    } 
+
+        var mstr = "分: ";
+        var sstr = "秒: ";
+        for(let i = 0; i < m; i++){
+            mstr += "〇";
+        }
+        for(let i = 0; i < s; i++){
+            sstr += "〇";
+        }
+        $("#minuteStr").html(mstr);
+        $("#secondStr").html(sstr);
+   } 
 
   </script>
 </head>
