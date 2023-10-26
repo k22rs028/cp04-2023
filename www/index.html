@@ -43,6 +43,10 @@
             btnDClick(e);
         });
 
+        $("#btnE").click(function(e) {
+            btnEClick(e);
+        });
+
         init();
         btnCClick(null);
     });
@@ -161,13 +165,15 @@
     var period = 0;
     var ax = false;
     
+    var colori = 0;
+    
     // ボタンの初期設定
     function init(){
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
         $("#btnD").prop("disabled", false);
-       
+        $("#btnE").prop("disabled", false);
     }
     
 
@@ -214,13 +220,20 @@
     }
     
     function btnDClick(e){
-        
         active = true;
-        ax = false
-        
-        startTime += Number(new Date());
-        
-        
+        ax = false      
+        startTime += Number(new Date());       
+    }
+
+    function btnEClick(e){
+        if((colori%3)==0){
+            $("body").css("background-color", "yellow");
+        }else if((colori%3)==1){
+            $("body").css("background-color", "green");
+        }else{
+            $("body").css("background-color", "skyblue");
+        }
+        colori++;
         
     }
  
@@ -284,6 +297,7 @@
     <button id="btnB">Stop</button>  
     <button id="btnC">Set</button> 
     <button id="btnD">restar</button> 
+    <button id="btnE">color</button> 
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
 </body>
