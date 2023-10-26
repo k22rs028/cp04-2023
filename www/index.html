@@ -165,8 +165,10 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
-        
+        $("#btnD").prop("disabled", false);
+       
     }
+    
 
     // Alarmの処理
     function alarm(){
@@ -210,7 +212,7 @@
     function btnDClick(e){
         
         active = true;
-         
+        
         startTime += Number(new Date());
         
         
@@ -246,6 +248,12 @@
         }
         $("#minuteStr").html(mstr);
         $("#secondStr").html(sstr);
+
+        if(active){
+            $('#btnB').prop('disabled', false);
+        }else{
+            $('#btnB').prop('disabled', true);
+        }
    } 
 
   </script>
