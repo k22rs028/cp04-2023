@@ -159,6 +159,7 @@
     var active = false
     var startTime = 0;
     var period = 0;
+    var ax = false;
     
     // ボタンの初期設定
     function init(){
@@ -187,6 +188,7 @@
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
         active = true;
+        ax = false;
         startTime = Number(new Date()); 
              
     }
@@ -195,6 +197,7 @@
     function btnBClick(e){     
         
         active = false;
+        ax = true;
         startTime -= Number(new Date()); 
         
     }
@@ -203,6 +206,7 @@
     function btnCClick(e){
         alarm();
         active = false;
+        ax = false;
         
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間：0");
@@ -212,6 +216,7 @@
     function btnDClick(e){
         
         active = true;
+        ax = false
         
         startTime += Number(new Date());
         
@@ -254,6 +259,13 @@
         }else{
             $('#btnB').prop('disabled', true);
         }
+
+        if(ax){
+            $('#btnD').prop('disabled', false);
+        }else{
+            $('#btnD').prop('disabled', true);
+        }
+
    } 
 
   </script>
