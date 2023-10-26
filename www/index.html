@@ -234,6 +234,14 @@
             var s = parseInt(rest % 60);
             $("#time").html("経過時間：" + time);
             $("#remain").html("残り時間：" + rest + "(" + m + ":" + s + ")" );
+            var mstr = "分: ";
+            var sstr = "秒: ";
+            for(let i = 0; i < m; i++){
+             mstr += "〇";
+            }
+            for(let i = 0; i < s; i++){
+                sstr += "〇";
+            }
             analog(rest);
         }
        
@@ -243,14 +251,8 @@
             alarm();
         }
 
-        var mstr = "分: ";
-        var sstr = "秒: ";
-        for(let i = 0; i < m; i++){
-            mstr += "〇";
-        }
-        for(let i = 0; i < s; i++){
-            sstr += "〇";
-        }
+        
+        
         $("#minuteStr").html(mstr);
         $("#secondStr").html(sstr);
 
